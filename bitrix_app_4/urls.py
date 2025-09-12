@@ -17,9 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from map_with_spots import views
+from map_with_spots.utils.company_list_to_json import company_list_to_json
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.start_index, name="start_index"),
     path('index_after/', views.index_after, name="index_after"),
+    path('company_list/', company_list_to_json, name="company_list_to_json"),
 ]
