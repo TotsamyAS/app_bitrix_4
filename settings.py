@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'integration_utils',
+    'integration_utils.bitrix24',
+    'map_with_spots'
 ]
 
 MIDDLEWARE = [
@@ -119,5 +122,35 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
+import os
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+from integration_utils.its_utils.mute_logger import MuteLogger
+ilogger = MuteLogger()
+
+
+
+# local settings
+try:
+    from local_settings import *
+except ImportError:
+    from warnings import warn
+
+    warn('create local_settings.py')
+# # ссылка на настройки доступа приложения
+# if not APP_SETTINGS:
+#     from integration_utils.bitrix24.local_settings_class import LocalSettingsClass
+#     APP_SETTINGS = LocalSettingsClass(
+#         portal_domain='b24-p202z0.bitrix24.ru',
+#         app_domain='is_demo.it-solution.ru',
+#         app_name='employee_list',
+#         salt='df897hynj4b34u804b5n45bkl4b',
+#         secret_key='sfjbh40989034nk4j4389tfj',
+#         application_bitrix_client_id='local.68c3da7cc26d13.57178471',
+#         application_bitrix_client_secret='PwZPzXGILABq5j6WVj25EsQyxBsyE7HH3Kb4RsDyKq3pjFgNmB',
+#         application_index_path='/',
+#     )
+
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

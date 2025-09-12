@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://api.bitrix24.com/api/v1/"></script>
+    <title>Приложение 4 - компании на Яндекс Карте</title>
+</head>
+<body>
+    <h1> Приложение 4 - компании на Яндекс Картах</h1>
+    <div id="map"></div>
+</body>
+    {% load static %}
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=0bec9964-3c18-4c20-a49d-4843593e1110&lang=ru_RU" type="text/javascript"></script>
+    <script src="{% static 'js/map.js' %}"></script>
+</html>

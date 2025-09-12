@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from map_with_spots import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.start_index, name="start_index"),
+    path('index_after/', views.index_after, name="index_after"),
 ]
