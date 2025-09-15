@@ -28,8 +28,9 @@ function init(){
                         let firstGeoObject = res.geoObjects.get(0);
 
                         if (firstGeoObject) {
+                            // добалвяем координаты
                             let coordinates = firstGeoObject.geometry.getCoordinates();
-
+                            // добавляем метку на карту по координатам
                             myMap.geoObjects.add(new ymaps.Placemark(
                                 coordinates,
                                 {
