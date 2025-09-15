@@ -1,13 +1,13 @@
 ymaps.ready(init);
 
 function init(){
-    // Добавляем стили для карты
+    // стили для карты
     const mapContainer = document.getElementById('map');
     mapContainer.style.width = '100%';
     mapContainer.style.height = '600px';
 
     let myMap = new ymaps.Map('map', {
-        center: [59.94, 30.31], // Центр на Санкт-Петербург
+        center: [59.94, 30.31], // координаты Санкт-Петербурга
         zoom: 10
     }, {
         searchControlProvider: 'yandex#search'
@@ -16,6 +16,7 @@ function init(){
     let request = new XMLHttpRequest();
 
     request.onreadystatechange = function() {
+//        readyState 4 означает, что элемент полностью загружен
         if (this.readyState == 4 && this.status == 200) {
             let companies = JSON.parse(this.responseText);
             console.log('Получены компании:', companies); // для отладки
@@ -52,7 +53,7 @@ function init(){
             console.error('Ошибка загрузки данных:', this.status, this.statusText);
         }
     };
-
+    // получаем тут json компаний для отображения их на карте
     request.open("GET", "company_list/");
     request.send();
 }
