@@ -51,6 +51,7 @@ function init(){
                 }
             }
         } else if (this.readyState == 4) {
+            // если статус загрузки не 200
             console.error('Ошибка загрузки данных:', this.status, this.statusText);
         }
     };
